@@ -1,4 +1,3 @@
-
 let numbersOfMembers = 5;
 let threshold = 200;
 
@@ -15,7 +14,7 @@ for (let member = 0; member < numbersOfMembers; member++) {
     let image = new Image();
     let imageWidth = (canvas.width - threshold) / numbersOfMembers;
     let imageHeight = (canvas.height - threshold) / numbersOfMembers;
-    image.src = "./assets/lucasssm.jpg";
+    image.src = "./assets/" + (member + 1) + ".png";
 
     image.onload = function () {
         let imageX = (member * threshold) + threshold;
@@ -24,6 +23,10 @@ for (let member = 0; member < numbersOfMembers; member++) {
         ctx.moveTo(imageX, 0);
         ctx.lineTo((threshold * member + threshold), canvas.height);
         ctx.stroke();
+        //filling mirror spaces
+        ctx.rect((threshold * member + threshold), (threshold * member + threshold), imageWidth, imageHeight);
+        ctx.fillStyle = "#7f8c8d";
+        ctx.fill();
     }
 }
 
@@ -32,7 +35,7 @@ for (let member = 0; member < numbersOfMembers; member++) {
     let image = new Image();
     let imageWidth = (canvas.width - threshold) / numbersOfMembers;
     let imageHeight = (canvas.height - threshold) / numbersOfMembers;
-    image.src = "./assets/lucasssm.jpg";
+    image.src = "./assets/" + (member + 1) + ".png";
 
     image.onload = function () {
         let imageY = (member * threshold) + threshold;
@@ -57,8 +60,8 @@ var imageObj = new Image();
 imageObj.onload = function () {
     for (var i = 0; i < numbersOfMembers; i++) {
         var xImg = new Konva.Image({
-            x: 150*i,
-            y: 150*i,
+            x: 150 * i,
+            y: 150 * i,
             image: imageObj,
             draggable: true,
             width: 106,
