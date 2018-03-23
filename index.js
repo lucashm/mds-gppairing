@@ -46,62 +46,34 @@ for (let member = 0; member < numbersOfMembers; member++) {
 
 
 
-
-
-
-
-
 var stage = new Konva.Stage({
     container: 'container',
-    width: canvas.width,
-    height: canvas.height
+    width: window.innerWidth,
+    height: window.innerHeight
 });
 
 var layer = new Konva.Layer();
+var imageObj = new Image();
+imageObj.onload = function () {
+    for (var i = 0; i < numbersOfMembers; i++) {
+        var xImg = new Konva.Image({
+            x: 150*i,
+            y: 150*i,
+            image: imageObj,
+            draggable: true,
+            width: 106,
+            height: 118
+        });
 
-var colors = ["red", "orange", "yellow", "green", "blue", "purple"];
+        // add the shape to the layer
+        layer.add(xImg);
 
-for(var i = 0; i < 6; i++) {
-    var box = new Konva.Rect({
-        x: i * 30 + 50,
-        y: i * 18 + 40,
-        fill: colors[i],
-        stroke: "black",
-        strokeWidth: 4,
-        draggable: true,
-        width: 100,
-        height: 50
-    });
+        // add the layer to the stage
+        stage.add(layer);
+    }
+};
+imageObj.src = './assets/X.png';
 
-    box.on("dragstart", function() {
-        this.moveToTop();
-        layer.draw();
-    });
-
-    box.on("dragmove", function() {
-        document.body.style.cursor = "pointer";
-    });
-    /*
-       * dblclick to remove box for desktop app
-       * and dbltap to remove box for mobile app
-       */
-    box.on("dblclick dbltap", function() {
-        this.destroy();
-        layer.draw();
-    });
-
-    box.on("mouseover", function() {
-        document.body.style.cursor = "pointer";
-    });
-    box.on("mouseout", function() {
-        document.body.style.cursor = "default";
-    });
-
-    layer.add(box);
-}
-
-// add the layer to the stage
-stage.add(layer);
 
 document.getElementById('container').appendChild(canvas);
 
