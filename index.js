@@ -49,17 +49,17 @@ for (let member = 0; member < numbersOfMembers; member++) {
 
 
 
-var stage = new Konva.Stage({
+let stage = new Konva.Stage({
     container: 'container',
-    width: window.innerWidth,
-    height: window.innerHeight
+    width: (canvas.width + threshold),
+    height: (canvas.height + threshold)
 });
 
-var layer = new Konva.Layer();
-var imageObj = new Image();
+let layer = new Konva.Layer();
+let imageObj = new Image();
 imageObj.onload = function () {
-    for (var i = 0; i < numbersOfMembers; i++) {
-        var xImg = new Konva.Image({
+    for (let i = 0; i < numbersOfMembers; i++) {
+        let xImg = new Konva.Image({
             x: 150 * i,
             y: 150 * i,
             image: imageObj,
