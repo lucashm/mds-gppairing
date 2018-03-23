@@ -1,0 +1,8 @@
+#main{
+  top: 0;
+  left: 0;
+}
+
+.konvajs-content{
+  z-index: 20;
+}
