@@ -22,3 +22,8 @@ And then, you need to modify the <b>line 1 at Index.js:</b>
 let numbersOfMembers = A;
 ```
 where A is the number of avatar assets that you've put on the assets folder.
+
+
+# Example version
+
+The example version is available [here](https://lucasssm.github.io/mds-gppairing/)
