@@ -27,3 +27,7 @@ where A is the number of avatar assets that you've put on the assets folder.
 # Example version
 
 The example version is available [here](https://lucasssm.github.io/mds-gppairing/)
+
+
+# Contributing
+To contribute to this project, just make a fork and send me a merge request!
